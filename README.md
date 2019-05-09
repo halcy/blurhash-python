@@ -22,7 +22,7 @@ Blurhash is an algorithm that lets you transform image data into a small text re
 This library contains a pure-python implementation of the blurhash algorithm, closely following the original swift implementation by Dag Ågren. The module has no dependencies (the unit tests require PIL and numpy). It exports only two functions, "encode" and "decode". The usage is as follows:
 
 ```python
-def blurhash.decode(blurhash, width, height, punch = 1.0, linear = False)
+blurhash.decode(blurhash, width, height, punch = 1.0, linear = False)
 """
 Decodes the given blurhash to an image of the specified size.
     
@@ -38,7 +38,7 @@ to a relatively small size and then scale the result up, as it
 basically looks the same anyways.
 """
 
-def blurhash_encode(image, components_x = 4, components_y = 4, linear = False):
+blurhash.encode(image, components_x = 4, components_y = 4, linear = False):
 """
 Calculates the blurhash for an image using the given x and y component counts.
 
