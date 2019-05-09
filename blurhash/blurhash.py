@@ -62,7 +62,7 @@ def linear_to_srgb(value):
 
 def blurhash_decode(blurhash, width, height, punch = 1.0, linear = False):
     """
-    Decode the given blurhash to an image of the specified size.
+    Decodes the given blurhash to an image of the specified size.
     
     Returns the resulting image a list of lists of 3-value sRGB 8 bit integer
     lists. Set linear to True if you would prefer to get linear floating point 
