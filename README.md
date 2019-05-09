@@ -12,7 +12,7 @@ PIL.Image.open("cool_cat_small.jpg")
 blurhash.encode(numpy.array(PIL.Image.open("cool_cat_small.jpg").convert("RGB")))
 # Result: 'UBL_:rOpGG-oBUNG,qRj2so|=eE1w^n4S5NH'
 
-PIL.Image.fromarray(numpy.array(blurhash.decode("UBMOZfK1GG%LBBNG,;Rj2skq=eE1s9n4S5Na", 128, 128)).astype('uint8'))
+PIL.Image.fromarray(numpy.array(blurhash.decode('UBL_:rOpGG-oBUNG,qRj2so|=eE1w^n4S5NH', 128, 128)).astype('uint8'))
 # Result:
 ```
 ![Blurhash example output: A blurred cool cat.](/blurhash_example.png?raw=true "Blurhash example output: A blurred cool cat.")
