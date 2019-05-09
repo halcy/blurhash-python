@@ -19,7 +19,13 @@ PIL.Image.fromarray(numpy.array(blurhash.decode("UBMOZfK1GG%LBBNG,;Rj2skq=eE1s9n
     
 Blurhash is an algorithm that lets you transform image data into a small text representation of a blurred version of the image. This is useful since this small textual representation can be included when sending objects that may have images attached around, since it can be used to quickly create a placeholder for images that are still loading or that should be hidden behind a content warning.
 
-This library contains a pure-python implementation of the blurhash algorithm, closely following the original swift implementation by Dag Ågren. The module has no dependencies (the unit tests require PIL and numpy). It exports only two functions, "encode" and "decode". The usage is as follows:
+This library contains a pure-python implementation of the blurhash algorithm, closely following the original swift implementation by Dag Ågren. The module has no dependencies (the unit tests require PIL and numpy). You can install it via pip:
+
+```bash
+$ pip3 install blurhash
+```
+
+It exports only two functions, "encode" and "decode". The usage is as follows:
 
 ```python
 blurhash.decode(blurhash, width, height, punch = 1.0, linear = False)
