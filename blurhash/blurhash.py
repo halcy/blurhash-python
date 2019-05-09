@@ -5,6 +5,8 @@ both de- and encoding.
 Very close port of the original Swift implementation by Dag Ågren.
 """
 
+import math
+
 # Alphabet for base 83
 alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%*+,-.:;=?@[]^_{|}~"
 alphabet_values = dict(zip(alphabet, range(len(alphabet))))
@@ -58,11 +60,13 @@ def linear_to_srgb(value):
         return int(value * 12.92 * 255 + 0.5)
     return int((1.055 * math.pow(value, 1 / 2.4) - 0.055) * 255 + 0.5)
 
-def blurhash_decode(blurhash, width, height, punch = 1.0):
+def blurhash_decode(blurhash, width, height, punch = 1.0, linear = False):
     """
     Decode the given blurhash to an image of the specified size.
     
-    Returns the resulting image a list of lists of 3-value RGB lists.
+    Returns the resulting image a list of lists of 3-value sRGB 8 bit integer
+    lists. Set linear to True if you would prefer to get linear floating point 
+    RGB back.
     
     The punch parameter can be used to de- or increase the contrast of the
     resulting image.
@@ -119,11 +123,14 @@ def blurhash_decode(blurhash, width, height, punch = 1.0):
                     pixel[0] += colour[0] * basis
                     pixel[1] += colour[1] * basis
                     pixel[2] += colour[2] * basis
-            pixel_row.append([
-                linear_to_srgb(pixel[0]),
-                linear_to_srgb(pixel[1]),
-                linear_to_srgb(pixel[2]),
-            ])   
+            if linear == False:
+                pixel_row.append([
+                    linear_to_srgb(pixel[0]),
+                    linear_to_srgb(pixel[1]),
+                    linear_to_srgb(pixel[2]),
+                ])
+            else:
+                pixel_row.append(pixel)
         pixels.append(pixel_row)
     return pixels
     
