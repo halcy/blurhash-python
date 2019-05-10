@@ -60,6 +60,20 @@ def linear_to_srgb(value):
         return int(value * 12.92 * 255 + 0.5)
     return int((1.055 * math.pow(value, 1 / 2.4) - 0.055) * 255 + 0.5)
 
+def blurhash_components(blurhash):
+    """
+    Decodes and returns the number of x and y components in the given blurhash.
+    """
+    if len(blurhash) < 6:
+        raise ValueError("BlurHash must be at least 6 characters long.")
+    
+    # Decode metadata
+    size_info = base83_decode(blurhash[0])
+    size_y = int(size_info / 9) + 1
+    size_x = (size_info % 9) + 1
+    
+    return size_x, size_y
+
 def blurhash_decode(blurhash, width, height, punch = 1.0, linear = False):
     """
     Decodes the given blurhash to an image of the specified size.
@@ -80,8 +94,8 @@ def blurhash_decode(blurhash, width, height, punch = 1.0, linear = False):
     
     # Decode metadata
     size_info = base83_decode(blurhash[0])
-    size_x = int(size_info / 9) + 1
-    size_y = (size_info % 9) + 1
+    size_y = int(size_info / 9) + 1
+    size_x = (size_info % 9) + 1
     
     quant_max_value = base83_decode(blurhash[1])
     real_max_value = (float(quant_max_value + 1) / 166.0) * punch
