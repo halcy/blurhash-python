@@ -30,7 +30,7 @@ It exports five functions:
 * "components" returns the number of components x- and y components of a blurhash
 * "srgb_to_linear" and "linear_to_srgb" are colour space conversion helpers
 
-Have a look at example.py for a recommendation for how to use all of these working together.
+Have a look at example.py for an example of how to use all of these working together.
 
 Documentation for each function:
 
