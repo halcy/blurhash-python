@@ -26,7 +26,7 @@ $ pip3 install blurhash
 ```
 
 It exports five functions:
-* "encode" and "decode" do the actual en- and decoding of blurhash functions
+* "encode" and "decode" do the actual en- and decoding of blurhash strings
 * "components" returns the number of components x- and y components of a blurhash
 * "srgb_to_linear" and "linear_to_srgb" are colour space conversion helpers
 
