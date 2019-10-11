@@ -6,7 +6,7 @@ extras = {
 }
 
 setup(name='blurhash',
-      version='1.1.3',
+      version='1.1.4',
       description='Pure-Python implementation of the blurhash algorithm.',
       packages=['blurhash'],
       install_requires=[],
@@ -15,14 +15,13 @@ setup(name='blurhash',
       url='https://github.com/halcy/blurhash-python',
       author='Lorenz Diener',
       author_email='lorenzd+blurhashpypi@gmail.com',
-      license='No-Nazis',
-      data_files = [("", ["LICENSE"])],
+      license='MIT',
       keywords='blurhash graphics web_development',
       classifiers=[
           'Development Status :: 5 - Production/Stable',
           'Intended Audience :: Developers',
           'Topic :: Multimedia :: Graphics',
-          'License :: Other/Proprietary License',
+          'License :: OSI Approved :: MIT License',
           'Programming Language :: Python :: 2',
           'Programming Language :: Python :: 3',
       ])
