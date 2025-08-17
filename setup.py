@@ -6,7 +6,7 @@ extras = {
 }
 
 setup(name='blurhash',
-      version='1.1.4',
+      version='1.1.5',
       description='Pure-Python implementation of the blurhash algorithm.',
       packages=['blurhash'],
       install_requires=[],
