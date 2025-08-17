@@ -1,1 +1,2 @@
 recursive-include tests *
+recursive-exclude * __pycache__ *.py[cod]
